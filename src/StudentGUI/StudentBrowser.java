@@ -300,27 +300,31 @@ public class StudentBrowser extends javax.swing.JFrame {
         form.setLocationRelativeTo(this);
         form.setVisible(true);
         Student temp = form.getStudent(); // This error checks for us.
-        students[size] = temp;
-        studentIndex = size;
-        size++;
-        studentChoiceList.add(temp.getName());
-        showStudent();
-        currentCountLabel.setText("Count: " + size);
-        modifyStudentButton.setEnabled(true);
-        if(size == 10) addStudentButton.setEnabled(false);
+        if(temp!= null) {
+            students[size] = temp;
+            studentIndex = size;
+            size++;
+            studentChoiceList.add(temp.getName());
+            showStudent();
+            currentCountLabel.setText("Count: " + size);
+            modifyStudentButton.setEnabled(true);
+            if(size == 10) addStudentButton.setEnabled(false);
+        }
     }//GEN-LAST:event_addStudentButtonActionPerformed
 
     private void modifyStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyStudentButtonActionPerformed
         StudentPopup form = new StudentPopup(this, true);
+        form.setForm(students[studentIndex]);
         form.setModal(true);
         form.setLocationRelativeTo(this);
         form.setVisible(true);
-        form.setForm(students[studentIndex]);
         Student temp = form.getStudent(); // This error checks for us.
-        students[studentIndex] = temp;
-        String nm = studentChoiceList.getItem(studentIndex);
-        nm = temp.getName();
-        showStudent();
+        if(temp!= null) {
+            students[studentIndex] = temp;
+            String nm = studentChoiceList.getItem(studentIndex);
+            nm = temp.getName();
+            showStudent();
+        }
     }//GEN-LAST:event_modifyStudentButtonActionPerformed
 
     private void studentChoiceListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_studentChoiceListItemStateChanged
