@@ -5,6 +5,11 @@
  */
 package StudentGUI;
 
+import java.awt.AWTException;
+import java.awt.TrayIcon.MessageType;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jame1850
