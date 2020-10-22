@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 public class StudentBrowser extends javax.swing.JFrame {
 
     Student[] students;
-    int size, studentIndex = 0;
+    int size = 0;
+    int studentIndex = 0;
     public StudentBrowser() {
         initComponents();
         students = new Student[10];
@@ -326,8 +327,8 @@ public class StudentBrowser extends javax.swing.JFrame {
         Student temp = form.getStudent(); // This error checks for us.
         if(temp!= null) {
             students[studentIndex] = temp;
-            String nm = studentChoiceList.getItem(studentIndex);
-            nm = temp.getName();
+            studentChoiceList.remove(studentIndex);
+            studentChoiceList.insert(temp.getName(), studentIndex);
             showStudent();
         }
     }//GEN-LAST:event_modifyStudentButtonActionPerformed
