@@ -28,7 +28,6 @@ public class StudentPopup extends javax.swing.JDialog {
     }
     
     public void setForm(Student s) {
-        student.setName(student.getName());
         studentNameInput.setText(s.getName());
         for (int i = 0; i < 3; i++) {
             markTable.setValueAt(s.getMark(i + 1), 0, i);
